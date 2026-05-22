@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="NOIR Fine Dining — Michelin-starred restaurant in Colombo, Sri Lanka. Luxury dining experience crafted by award-winning chefs.">
+<meta name="keywords" content="fine dining, Colombo restaurant, Michelin star, luxury dining, Sri Lanka">
+<meta property="og:title" content="NOIR Fine Dining — Colombo">
+<meta property="og:description" content="An immersive fine dining experience in the heart of Colombo.">
+<title>NOIR — Fine Dining Experience | Colombo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <div class="preloader-inner">
+    <div class="preloader-logo">NOIR</div>
+    <div class="preloader-bar"><div class="preloader-fill"></div></div>
+    <p class="preloader-text">Preparing your experience...</p>
+  </div>
+</div>
+
+<!-- CUSTOM CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div id="cursor-label"></div>
+
+<!-- NAVIGATION -->
+<nav id="navbar">
+  <a href="#home" class="nav-logo">NOIR</a>
+  <ul class="nav-links">
+    <li><a href="#featured">Dishes</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#chef">Chef</a></li>
+    <li><a href="#reservation">Reserve</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="nav-cart" id="navCart" onclick="toggleCart()">
+      <span class="cart-icon">🛒</span>
+      <span class="cart-nav-count" id="cartNavCount">0</span>
+    </button>
+    <button class="nav-cta" onclick="scrollToSection('#reservation')">Reserve Table</button>
+    <button class="hamburger" id="hamburger" onclick="toggleMobile()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#featured" onclick="toggleMobile()">Dishes</a></li>
+    <li><a href="#menu" onclick="toggleMobile()">Menu</a></li>
+    <li><a href="#chef" onclick="toggleMobile()">Chef</a></li>
+    <li><a href="#reservation" onclick="toggleMobile()">Reserve</a></li>
+    <li><a href="#gallery" onclick="toggleMobile()">Gallery</a></li>
+    <li><a href="#contact" onclick="toggleMobile()">Contact</a></li>
+  </ul>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- Floating Food Cards -->
+  <div class="food-float-container" id="foodFloat">
+    <div class="food-float ff-1">
+      <div class="food-card" data-tilt>
+        <span class="food-emoji">🥩</span>
+        <span class="food-label">Wagyu Tenderloin</span>
+        <span class="food-price">LKR 8,500</span>
+      </div>
+    </div>
+    <div class="food-float ff-2">
+      <div class="food-card" data-tilt>
+        <span class="food-emoji">🦞</span>
+        <span class="food-label">Lobster Thermidor</span>
+        <span class="food-price">LKR 9,200</span>
+      </div>
+    </div>
+    <div class="food-float ff-3">
+      <div class="food-card" data-tilt>
+        <span class="food-emoji">🍣</span>
+        <span class="food-label">Omakase Sushi</span>
+        <span class="food-price">LKR 7,400</span>
+      </div>
+    </div>
+    <div class="food-float ff-4">
+      <div class="food-card" data-tilt>
+        <span class="food-emoji">🍝</span>
+        <span class="food-label">Truffle Pasta</span>
+        <span class="food-price">LKR 5,800</span>
+      </div>
+    </div>
+    <div class="food-float ff-5">
+      <div class="food-card" data-tilt>
+        <span class="food-emoji">🍮</span>
+        <span class="food-label">Grand Soufflé</span>
+        <span class="food-price">LKR 3,200</span>
+      </div>
+    </div>
+    <div class="food-float ff-6">
+      <div class="food-card" data-tilt>
+        <span class="food-emoji">🫕</span>
+        <span class="food-label">Ceylon Biryani</span>
+        <span class="food-price">LKR 4,800</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      <span>✦ Est. 2009 · Michelin Starred · Colombo, Sri Lanka</span>
+    </div>
+    <h1 class="hero-title">
+      <span class="hero-line-1">Where Food</span>
+      <em class="hero-line-2">Becomes Art</em>
+    </h1>
+    <p class="hero-sub">An immersive fine dining experience crafted by award-winning chefs. Every plate tells a story.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="scrollToSection('#reservation')">
+        <span class="btn-text">Reserve a Table</span>
+        <span class="btn-arrow">→</span>
+      </button>
+      <button class="btn-outline" onclick="scrollToSection('#menu')">
+        <span>Explore Menu</span>
+      </button>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <strong>3</strong><span>Michelin Stars</span>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <strong>15+</strong><span>Years of Excellence</span>
+      </div>
+      <div class="hero-stat-divider"></div>
+      <div class="hero-stat">
+        <strong>48</strong><span>Signature Dishes</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-indicator">
+    <span>Scroll to Discover</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ===== MARQUEE BAND ===== -->
+<div class="marquee-band">
+  <div class="marquee-track">
+    <span>✦ FINE DINING</span><span>✦ MICHELIN STARRED</span><span>✦ WAGYU A5</span>
+    <span>✦ OMAKASE EXPERIENCE</span><span>✦ PRIVATE DINING</span><span>✦ COLOMBO</span>
+    <span>✦ FINE DINING</span><span>✦ MICHELIN STARRED</span><span>✦ WAGYU A5</span>
+    <span>✦ OMAKASE EXPERIENCE</span><span>✦ PRIVATE DINING</span><span>✦ COLOMBO</span>
+  </div>
+</div>
+
+<!-- ===== FEATURED DISHES ===== -->
+<section class="featured-section" id="featured">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">✦ Chef's Selection</p>
+    <h2 class="section-title">Signature <em>Creations</em></h2>
+    <p class="section-sub">Meticulously crafted dishes that celebrate the finest ingredients from land and sea.</p>
+  </div>
+  <div class="dishes-grid" id="dishesGrid">
+    <!-- Populated by JS -->
+  </div>
+</section>
+
+<!-- ===== EXPERIENCE STRIP ===== -->
+<div class="experience-strip">
+  <div class="exp-item reveal">
+    <span class="exp-icon">🍷</span>
+    <h3>800+ Wine Labels</h3>
+    <p>Curated cellar spanning five continents</p>
+  </div>
+  <div class="exp-item reveal" style="transition-delay:.15s">
+    <span class="exp-icon">👨‍🍳</span>
+    <h3>Live Open Kitchen</h3>
+    <p>Watch our chefs craft every dish</p>
+  </div>
+  <div class="exp-item reveal" style="transition-delay:.3s">
+    <span class="exp-icon">🕯️</span>
+    <h3>Private Dining Rooms</h3>
+    <p>Intimate spaces for special occasions</p>
+  </div>
+  <div class="exp-item reveal" style="transition-delay:.45s">
+    <span class="exp-icon">🌿</span>
+    <h3>Farm-to-Table</h3>
+    <p>Sourced daily from local artisan farms</p>
+  </div>
+</div>
+
+<!-- ===== MENU SECTION ===== -->
+<section class="menu-section" id="menu">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">✦ Full Menu</p>
+    <h2 class="section-title">Crafted with <em>Precision</em></h2>
+    <p class="section-sub">Every item on our menu is a testament to technique, quality, and flavour harmony.</p>
+  </div>
+  <div class="menu-tabs" id="menuTabs">
+    <button class="tab active" data-cat="all">All</button>
+    <button class="tab" data-cat="starters">Starters</button>
+    <button class="tab" data-cat="mains">Mains</button>
+    <button class="tab" data-cat="seafood">Seafood</button>
+    <button class="tab" data-cat="desserts">Desserts</button>
+    <button class="tab" data-cat="drinks">Drinks</button>
+  </div>
+  <div class="menu-grid" id="menuGrid">
+    <!-- Populated by JS -->
+  </div>
+</section>
+
+<!-- ===== CHEF SECTION ===== -->
+<section class="chef-section" id="chef">
+  <div class="chef-visual reveal-left">
+    <div class="chef-portrait-wrap">
+      <span class="chef-emoji">👨‍🍳</span>
+      <div class="chef-award-badge">
+        <span>★★★</span>
+        <span>Michelin</span>
+      </div>
+    </div>
+  </div>
+  <div class="chef-content reveal-right">
+    <p class="section-eyebrow">✦ The Artisan</p>
+    <h2 class="section-title">Chef <span class="gold-text">Arjun Mehta</span></h2>
+    <p class="chef-quote">"Cooking is the art of making someone feel at home, anywhere in the world."</p>
+    <p class="section-sub">
+      Trained at Le Cordon Bleu Paris and apprenticed under three Michelin-starred establishments across France and Japan, Chef Arjun brings a philosophy of hyper-seasonal, terroir-driven cuisine to every plate.
+    </p>
+    <p class="section-sub" style="margin-top:1rem;">
+      His technique marries classic French fundamentals with the vibrant spice traditions of South Asia — creating dishes that are simultaneously familiar and revelatory.
+    </p>
+    <div class="chef-accolades">
+      <span>Le Cordon Bleu, Paris</span>
+      <span>Restaurant Joël Robuchon</span>
+      <span>Narisawa, Tokyo</span>
+    </div>
+    <div class="chef-stats">
+      <div class="stat">
+        <div class="stat-num" data-target="15">0</div>
+        <div class="stat-label">Years Exp.</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" data-target="3">0</div>
+        <div class="stat-label">Michelin Stars</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" data-target="48">0</div>
+        <div class="stat-label">Signatures</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" data-target="12">0</div>
+        <div class="stat-label">Awards</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRIVATE DINING ===== -->
+<section class="private-section">
+  <div class="private-inner reveal">
+    <p class="section-eyebrow" style="text-align:center;">✦ Exclusive Events</p>
+    <h2 class="section-title" style="text-align:center;">Private <em>Dining Rooms</em></h2>
+    <p class="section-sub" style="text-align:center;margin:1rem auto 3rem;max-width:600px;">
+      For celebrations, proposals, corporate dinners, and intimate gatherings. Our private rooms seat 4 to 30 guests with bespoke menus and dedicated service.
+    </p>
+    <div class="private-rooms">
+      <div class="private-room reveal">
+        <span class="room-emoji">🕯️</span>
+        <h3>The Cellar Room</h3>
+        <p>Intimate wine cellar setting. Up to 8 guests. Full sommelier service included.</p>
+        <span class="room-capacity">4–8 Guests</span>
+      </div>
+      <div class="private-room reveal" style="transition-delay:.15s">
+        <span class="room-emoji">🌹</span>
+        <h3>The Garden Terrace</h3>
+        <p>Open-air luxury terrace with Colombo skyline views. Perfect for proposals.</p>
+        <span class="room-capacity">2–12 Guests</span>
+      </div>
+      <div class="private-room reveal" style="transition-delay:.3s">
+        <span class="room-emoji">👑</span>
+        <h3>The Grand Salon</h3>
+        <p>Our most prestigious private space with butler service and bespoke tasting menu.</p>
+        <span class="room-capacity">10–30 Guests</span>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:3rem;">
+      <button class="btn-outline" onclick="scrollToSection('#reservation')">Enquire About Private Dining</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RESERVATION ===== -->
+<section class="reservation-section" id="reservation">
+  <div class="reservation-wrapper">
+    <div class="reservation-left reveal-left">
+      <p class="section-eyebrow">✦ Reserve Your Evening</p>
+      <h2 class="section-title">Book a <em>Table</em></h2>
+      <p class="section-sub">We recommend reserving at least 3 days in advance. Same-day reservations are subject to availability.</p>
+      <div class="res-info-items">
+        <div class="res-info-item">
+          <span class="res-icon">🕐</span>
+          <div>
+            <strong>Opening Hours</strong>
+            <span>Mon–Thu: 7:00 PM – 11:00 PM</span>
+            <span>Fri–Sun: 6:30 PM – 11:30 PM</span>
+          </div>
+        </div>
+        <div class="res-info-item">
+          <span class="res-icon">📍</span>
+          <div>
+            <strong>Location</strong>
+            <span>42 Galle Face Terrace</span>
+            <span>Colombo 03, Sri Lanka</span>
+          </div>
+        </div>
+        <div class="res-info-item">
+          <span class="res-icon">📞</span>
+          <div>
+            <strong>Telephone</strong>
+            <span>+94 11 234 5678</span>
+            <span>reservations@noir.lk</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reservation-right reveal-right">
+      <div class="reservation-form" id="reservationForm">
+        <h3 class="form-title">Reservation Details</h3>
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">First Name *</label>
+            <input type="text" class="form-input" id="fname" placeholder="Arjun">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name *</label>
+            <input type="text" class="form-input" id="lname" placeholder="Mehta">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address *</label>
+            <input type="email" class="form-input" id="email" placeholder="arjun@email.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number *</label>
+            <input type="tel" class="form-input" id="phone" placeholder="+94 77 123 4567">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Preferred Date *</label>
+            <input type="date" class="form-input" id="resDate">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Preferred Time *</label>
+            <select class="form-input" id="resTime">
+              <option value="">Select time</option>
+              <option>6:30 PM</option><option>7:00 PM</option>
+              <option>7:30 PM</option><option>8:00 PM</option>
+              <option>8:30 PM</option><option>9:00 PM</option>
+              <option>9:30 PM</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Number of Guests *</label>
+            <select class="form-input" id="guests">
+              <option value="">Select guests</option>
+              <option>1 Guest</option><option>2 Guests</option>
+              <option>3 Guests</option><option>4 Guests</option>
+              <option>5 Guests</option><option>6+ (Private Dining)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Occasion</label>
+            <select class="form-input" id="occasion">
+              <option>Dinner</option><option>Anniversary</option>
+              <option>Birthday</option><option>Proposal</option>
+              <option>Business Dinner</option><option>Celebration</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Special Requests</label>
+            <textarea class="form-input form-textarea" id="requests" placeholder="Dietary requirements, allergies, preferences, seating requests..."></textarea>
+          </div>
+        </div>
+        <button class="submit-btn" onclick="submitReservation()">
+          <span class="submit-text">Confirm Reservation</span>
+          <span class="submit-arrow">→</span>
+        </button>
+        <p class="form-note">By confirming you agree to our cancellation policy. We will contact you within 2 hours.</p>
+      </div>
+      <!-- Success State -->
+      <div class="reservation-success" id="reservationSuccess" style="display:none;">
+        <div class="success-icon">✓</div>
+        <h3>Reservation Confirmed!</h3>
+        <p>Thank you. We have received your reservation and will send a confirmation to your email within 2 hours.</p>
+        <p class="success-ref">Reference: <strong id="resRef"></strong></p>
+        <button class="btn-outline" onclick="resetForm()" style="margin-top:2rem;">Make Another Reservation</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== REVIEWS ===== -->
+<section class="reviews-section" id="reviews">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">✦ Guest Voices</p>
+    <h2 class="section-title">What Our <em>Guests Say</em></h2>
+  </div>
+  <div class="reviews-container">
+    <div class="reviews-track" id="reviewsTrack"></div>
+  </div>
+  <div class="reviews-dots" id="reviewsDots"></div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section class="gallery-section" id="gallery">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">✦ Visual Feast</p>
+    <h2 class="section-title">The <em>Gallery</em></h2>
+    <p class="section-sub">A glimpse into our world of culinary artistry and ambience.</p>
+  </div>
+  <div class="masonry-grid" id="masonryGrid">
+    <!-- Populated by JS -->
+  </div>
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <div class="lightbox-content">
+      <span class="lightbox-emoji" id="lightboxEmoji"></span>
+      <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT / FOOTER ===== -->
+<footer id="contact">
+  <div class="footer-top">
+    <div class="footer-brand reveal-left">
+      <div class="footer-logo">NOIR</div>
+      <p class="footer-tagline">A sanctuary of flavour in the heart of Colombo. Where every meal is a ceremony, every plate a work of art.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn" aria-label="Facebook">f</a>
+        <a href="#" class="social-btn" aria-label="Instagram">▲</a>
+        <a href="#" class="social-btn" aria-label="Twitter">✕</a>
+        <a href="#" class="social-btn" aria-label="YouTube">▶</a>
+        <a href="#" class="social-btn" aria-label="TripAdvisor">⊙</a>
+      </div>
+    </div>
+    <div class="footer-col reveal">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="#featured">Signature Dishes</a></li>
+        <li><a href="#menu">Full Menu</a></li>
+        <li><a href="#chef">Our Chef</a></li>
+        <li><a href="#reservation">Reservations</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#">Private Dining</a></li>
+        <li><a href="#">Wine Cellar</a></li>
+        <li><a href="#">Events</a></li>
+      </ul>
+    </div>
+    <div class="footer-col reveal" style="transition-delay:.1s">
+      <h4>Contact</h4>
+      <ul>
+        <li>📍 42 Galle Face Terrace, Colombo 03</li>
+        <li>📞 +94 754040463</li>
+        <li>📠 +94 11 234 5679</li>
+        <li>✉ reservations@noir.lk</li>
+        <li>🌐 www.noir.lk</li>
+        <li style="margin-top:1rem;">Instagram: @noircolombo</li>
+      </ul>
+    </div>
+    <div class="footer-col reveal" style="transition-delay:.2s">
+      <h4>Opening Hours</h4>
+      <div class="footer-hours">
+        <div class="hours-row">
+          <span>Monday – Thursday</span>
+          <strong>7:00 PM – 11:00 PM</strong>
+        </div>
+        <div class="hours-row">
+          <span>Friday</span>
+          <strong>6:30 PM – 12:00 AM</strong>
+        </div>
+        <div class="hours-row">
+          <span>Saturday</span>
+          <strong>12:00 PM – 12:00 AM</strong>
+        </div>
+        <div class="hours-row">
+          <span>Sunday</span>
+          <strong>12:00 PM – 11:00 PM</strong>
+        </div>
+        <div class="hours-row closed">
+          <span>Public Holidays</span>
+          <strong>By Appointment</strong>
+        </div>
+      </div>
+      <div class="footer-newsletter">
+        <h4 style="margin-top:2rem;">Newsletter</h4>
+        <div class="newsletter-form">
+          <input type="email" id="newsletterEmail" placeholder="Your email address">
+          <button onclick="subscribeNewsletter()">→</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAP STRIP -->
+  <div class="footer-map reveal">
+    <div class="map-placeholder">
+      <span class="map-icon">📍</span>
+      <div>
+        <strong>NOIR Fine Dining</strong>
+        <span>42 Galle Face Terrace, Colombo 03, Sri Lanka</span>
+        <a href="https://maps.google.com" target="_blank" class="map-link">Get Directions →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 NOIR Fine Dining, Colombo. All rights reserved.</p>
+    <div class="footer-legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Cancellation Policy</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== CART SIDEBAR ===== -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h3>Your Order</h3>
+    <button onclick="toggleCart()" class="cart-close">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty" id="cartEmpty">
+      <span>🍽️</span>
+      <p>Your order is empty</p>
+      <small>Add dishes to begin</small>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-subtotal">
+      <span>Subtotal</span>
+      <span id="cartSubtotal">LKR 0</span>
+    </div>
+    <div class="cart-tax">
+      <span>Service Charge (10%)</span>
+      <span id="cartTax">LKR 0</span>
+    </div>
+    <div class="cart-total">
+      <span>Total</span>
+      <span id="cartTotal">LKR 0</span>
+    </div>
+    <button class="submit-btn" style="margin-top:1.5rem;" onclick="placeOrder()">Place Order</button>
+  </div>
+</div>
+
+<!-- CART BADGE (floating) -->
+<div class="cart-fab" id="cartFab" onclick="toggleCart()" style="display:none">
+  <span>🛒</span>
+  <span class="cart-fab-count" id="cartFabCount">0</span>
+</div>
+
+<!-- TOAST NOTIFICATION -->
+<div class="toast" id="toast"></div>
+
+<!-- AI CHATBOT -->
+<div class="chatbot-bubble" id="chatbotBubble" onclick="toggleChat()">💬</div>
+<div class="chatbot-window" id="chatbotWindow">
+  <div class="chatbot-header">
+    <span>🤵 NOIR Concierge</span>
+    <button onclick="toggleChat()">✕</button>
+  </div>
+  <div class="chatbot-messages" id="chatMessages">
+    <div class="chat-msg bot">
+      <span class="chat-avatar">🤵</span>
+      <div class="chat-bubble">Good evening! I'm your NOIR concierge. How may I assist you today? I can help with reservations, menu recommendations, or any questions about our restaurant.</div>
+    </div>
+  </div>
+  <div class="chatbot-input-area">
+    <div class="chatbot-quick">
+      <button onclick="sendQuick('Show me tonight\'s specials')">Tonight's Specials</button>
+      <button onclick="sendQuick('I\'d like to make a reservation')">Reserve Table</button>
+      <button onclick="sendQuick('Tell me about the chef')">Meet the Chef</button>
+    </div>
+    <div class="chatbot-input">
+      <input type="text" id="chatInput" placeholder="Ask anything..." onkeydown="if(event.key==='Enter')sendChat()">
+      <button onclick="sendChat()">→</button>
+    </div>
+  </div>
+</div>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- SCRIPTS -->
+<script src="js/data.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/chatbot.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
